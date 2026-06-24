@@ -1,0 +1,22 @@
+# Vendor libraries
+application/third_party/
+
+# Environment config — never commit real ones
+application/config/database.php
+application/config/config.php
+
+# Logs
+application/logs/*
+!application/logs/index.html
+
+# Generated/temp
+application/tmp/
+temp/*
+backup/
+uploads/*
+!uploads/index.html
+backend/captcha_images/*
+
+# OS
+.DS_Store
+Thumbs.db
