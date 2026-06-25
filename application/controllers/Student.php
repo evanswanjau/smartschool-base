@@ -697,23 +697,24 @@ class Student extends Admin_Controller
                 $admission_no                      = 0;
 
                 if ($this->sch_setting_detail->adm_auto_insert) {
+                    $current_year = date('Y');
                     if ($this->sch_setting_detail->adm_update_status) {
 
-                        $admission_no = $this->sch_setting_detail->adm_prefix . $this->sch_setting_detail->adm_start_from;
+                        $admission_no = $this->sch_setting_detail->adm_prefix . $this->sch_setting_detail->adm_start_from . '/' . $current_year;
 
                         $last_student = $this->student_model->lastRecord();
                         if (!empty($last_student)) {
 
                             $last_admission_digit = str_replace($this->sch_setting_detail->adm_prefix, "", $last_student->admission_no);
 
-                            $admission_no                = $this->sch_setting_detail->adm_prefix . sprintf("%0" . $this->sch_setting_detail->adm_no_digit . "d", $last_admission_digit + 1);
+                            $admission_no                = $this->sch_setting_detail->adm_prefix . sprintf("%0" . $this->sch_setting_detail->adm_no_digit . "d", $last_admission_digit + 1) . '/' . $current_year;
                             $data_insert['admission_no'] = $admission_no;
                         } else {
-                            $admission_no                = $this->sch_setting_detail->adm_prefix . $this->sch_setting_detail->adm_start_from;
+                            $admission_no                = $this->sch_setting_detail->adm_prefix . $this->sch_setting_detail->adm_start_from . '/' . $current_year;
                             $data_insert['admission_no'] = $admission_no;
                         }
                     } else {
-                        $admission_no                = $this->sch_setting_detail->adm_prefix . $this->sch_setting_detail->adm_start_from;
+                        $admission_no                = $this->sch_setting_detail->adm_prefix . $this->sch_setting_detail->adm_start_from . '/' . $current_year;
                         $data_insert['admission_no'] = $admission_no;
                     }
 
