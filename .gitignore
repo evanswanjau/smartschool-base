@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment config — each server maintains its own
+application/config/config.php
+application/config/database.php
+
+# User uploads
+uploads/*
+!uploads/index.html
+
+# Logs and cache
+application/logs/*
+!application/logs/index.html
+application/cache/*
+!application/cache/index.html
+
+# Temp
+temp/
+
+# Generated captcha images
+backend/captcha_images/
+
+# Installer (vanilla only)
+application/controllers/install/
